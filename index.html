@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Fun Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #3e2723; /* Dark brown color */
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            background-color: #795548; /* Brown color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #6d4c41; /* Darker brown on hover */
+        }
+        #fact {
+            margin-top: 20px;
+            font-size: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dog Fun Facts</h1>
+    <button id="factButton">Show Random Fact</button>
+    <div id="fact"></div>
+
+    <script>
+        const funFacts = [
+            "Dogs have an extraordinary sense of smell, which is 10,000 to 100,000 times more sensitive than humans.",
+            "The Basenji dog is known as the 'barkless dog' because it doesn't bark like other dogs.",
+            "Dogs can understand up to 165 words, signs, and signals, and some can even learn more than 200.",
+            "A Greyhound is the fastest dog breed and can run up to 45 miles per hour.",
+            "Dogs have three eyelids, including one that helps keep their eyes moist and protected.",
+            "The Labrador Retriever has been the most popular dog breed in the United States for several years.",
+            "Dogs' noses are wet to help absorb scent chemicals, enhancing their sense of smell.",
+            "The world's oldest known breed is the Saluki, which dates back to ancient Egypt.",
+            "Dogs can hear sounds at frequencies as high as 65,000 Hz, while humans can only hear up to 20,000 Hz.",
+            "A dog's sense of hearing is four times more acute than that of a human."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * funFacts.length);
+            const selectedFact = funFacts[randomIndex];
+            const factDiv = document.getElementById('fact');
+            factDiv.textContent = selectedFact;
+            factDiv.style.opacity = 0; // Reset opacity for animation
+            setTimeout(() => {
+                factDiv.style.opacity = 1; // Fade in effect
+            }, 10);
+        });
+    </script>
+</body>
+</html>
